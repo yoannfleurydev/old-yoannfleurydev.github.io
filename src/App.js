@@ -6,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 class App extends Component {
   render() {
     return (
-      <AppBar position="static" color="default">
+      <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" color="inherit">
             YoannFleuryDev
