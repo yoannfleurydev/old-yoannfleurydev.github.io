@@ -14,7 +14,7 @@ class PostLoader extends Component {
 
     this.setState({ loading: true }, () => {
       fetch(
-        `https://raw.githubusercontent.com/yoannfleurydev/yoannfleurydev.github.io/develop/public/posts/${
+        `https://raw.githubusercontent.com/yoannfleurydev/yoannfleurydev.github.io/develop/public/posts${
           location.pathname
         }.md`
       )
