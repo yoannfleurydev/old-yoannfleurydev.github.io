@@ -1,25 +1,46 @@
-import React, { Component, lazy, Suspense } from "react";
+import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import { importMDX } from "mdx.macro";
+import metadata from "./metadata.json";
+import marked from "marked";
 
-/*
- Dans ce composant, on veut récupérer la date / le nom du fichier à charger.
- */
 class PostLoader extends Component {
-  render() {
+  state = {
+    markdown: ""
+  };
+
+  componentDidMount() {
     const { location } = this.props;
     console.log(location.pathname);
-    const Content = lazy(() => {
-      importMDX("../public/posts/2019_01_06.md");
-    });
 
-    return (
-      <div>
-        <Suspense fallback={<div>Chargement...</div>}>
-          <Content />
-        </Suspense>
-      </div>
-    );
+    fetch(
+      `https://raw.githubusercontent.com/yoannfleurydev/yoannfleurydev.github.io/develop/public/posts/${
+        location.pathname
+      }.md`
+    )
+      .then(response => {
+        console.log(response);
+        return response.text();
+      })
+      .then(text => {
+        this.setState({
+          markdown: marked(text)
+        });
+      });
+  }
+
+  render() {
+    const { posts } = metadata;
+    const { markdown } = this.state;
+    // const postComponents = [];
+    // Object.keys(posts).map(key => {
+    //   postComponents.push(
+    //     lazy(() => {
+    //       importMDX(posts[key]);
+    //     })
+    //   );
+    // });
+
+    return <article dangerouslySetInnerHTML={{ __html: markdown }} />;
   }
 }
 
