@@ -1,5 +1,8 @@
 {
-  "posts": {
-    "2019_01_06": "../public/posts/2019_01_06.md"
-  }
+  "posts": [
+    {
+      "path": "2019_01_06_bienvenu",
+      "title": "Bienvenu"
+    }
+  ]
 }
