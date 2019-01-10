@@ -13,11 +13,7 @@ class PostLoader extends Component {
     const { match } = this.props;
 
     this.setState({ loading: true }, () => {
-      fetch(
-        `https://raw.githubusercontent.com/yoannfleurydev/yoannfleurydev.github.io/develop/public/posts/${
-          match.params.id
-        }.md`
-      )
+      fetch(`./posts/${match.params.id}.md`)
         .then(response => {
           return response.text();
         })
