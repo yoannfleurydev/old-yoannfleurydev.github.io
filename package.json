@@ -9,7 +9,6 @@
     "mdx.macro": "^0.2.7",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "react-medium-image-zoom": "^3.0.15",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.3"
   },
