@@ -10,12 +10,12 @@ class PostLoader extends Component {
   };
 
   componentDidMount() {
-    const { location } = this.props;
+    const { match } = this.props;
 
     this.setState({ loading: true }, () => {
       fetch(
-        `https://raw.githubusercontent.com/yoannfleurydev/yoannfleurydev.github.io/develop/public/posts${
-          location.pathname
+        `https://raw.githubusercontent.com/yoannfleurydev/yoannfleurydev.github.io/develop/public/posts/${
+          match.params.id
         }.md`
       )
         .then(response => {

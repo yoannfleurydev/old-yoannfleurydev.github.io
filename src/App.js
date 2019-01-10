@@ -4,15 +4,12 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { HashRouter as Router, Route, Link } from "react-router-dom";
 import PostLoader from "./PostLoader";
-import metadata from "./metadata.json";
 import { Button } from "@material-ui/core";
+import PostList from "./PostList";
+import Gallery from "./Gallery";
 
 class App extends Component {
   render() {
-    const { posts } = metadata;
-
-    const Gallery = "";
-
     return (
       <Router>
         <div>
@@ -30,14 +27,13 @@ class App extends Component {
               <Button component={Link} to="/" color="inherit">
                 Accueil
               </Button>
+              <Button component={Link} to="/photos" color="inherit">
+                Photos
+              </Button>
             </Toolbar>
           </AppBar>
-          {posts.map(post => (
-            <Link key={post.path} to={post.path}>
-              {post.title}
-            </Link>
-          ))}
-          <Route path="/:id" component={PostLoader} />
+          <Route path="/" component={PostList} exact />
+          <Route path="/post/:id" component={PostLoader} />
           <Route path="/photos" component={Gallery} />
         </div>
       </Router>
