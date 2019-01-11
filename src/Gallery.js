@@ -27,7 +27,8 @@ const styles = {
     gridRow: "1 / -1",
     width: "100%",
     height: "100%",
-    objectFit: "cover"
+    objectFit: "cover",
+    cursor: "zoom-in"
   },
   overlay: {
     position: "fixed",
@@ -39,10 +40,8 @@ const styles = {
     zIndex: "2",
     display: "flex",
     justifyItems: "center",
-    alignItems: "center"
-  },
-  portrait: {
-    maxHeight: "634px"
+    alignItems: "center",
+    cursor: "zoom-out"
   }
 };
 
