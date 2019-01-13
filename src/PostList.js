@@ -1,15 +1,54 @@
 import React, { Component } from "react";
-import { List, ListItem, ListItemText } from "@material-ui/core";
-import metadata from "./metadata.json";
+import {
+  List,
+  ListItem,
+  ListItemText,
+  withStyles,
+  LinearProgress
+} from "@material-ui/core";
 import { Link } from "react-router-dom";
 
+const styles = {
+  link: {
+    textDecoration: "none"
+  }
+};
+
 class PostList extends Component {
+  state = {
+    loading: false,
+    posts: []
+  };
+
+  componentDidMount() {
+    this.setState({ loading: true }, () => {
+      fetch(`./metadata.json`)
+        .then(response => {
+          return response.json();
+        })
+        .then(metadata => {
+          this.setState({ loading: false, posts: metadata.posts });
+        })
+        .catch(_ => {
+          this.setState({ loading: false });
+        });
+    });
+  }
+
   render() {
-    const { posts } = metadata;
-    return (
+    const { classes } = this.props;
+    const { loading, posts } = this.state;
+
+    return loading ? (
+      <LinearProgress />
+    ) : (
       <List>
         {posts.map(post => (
-          <Link key={post.path} to={`/post/${post.path}`}>
+          <Link
+            key={post.path}
+            to={`/post/${post.path}`}
+            className={classes.link}
+          >
             <ListItem>
               <ListItemText primary={post.title} secondary={post.path} />
             </ListItem>
@@ -20,4 +59,4 @@ class PostList extends Component {
   }
 }
 
-export default PostList;
+export default withStyles(styles)(PostList);

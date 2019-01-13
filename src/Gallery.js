@@ -47,19 +47,19 @@ const styles = {
 
 const images = [
   {
-    src: "./img/amiens_20181123_193548.jpg",
+    src: "./img/gallery/amiens_20181123_193548.jpg",
     alt: "Grande Roue du Marché de Noël d'Amiens"
   },
   {
-    src: "./img/amiens_20181201_201109.jpg",
+    src: "./img/gallery/amiens_20181201_201109.jpg",
     alt: "Rue d'Amiens vers le quartier de Saint Leu"
   },
   {
-    src: "./img/amiens_20181229_195026.jpg",
+    src: "./img/gallery/amiens_20181229_195026.jpg",
     alt: "Bière Tempest Mexicake Brune"
   },
   {
-    src: "./img/rouen_20181122_140027.jpg",
+    src: "./img/gallery/rouen_20181122_140027.jpg",
     alt: "Amphithéâtre principal de Codeurs en Seine 2018"
   }
 ];

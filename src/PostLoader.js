@@ -1,7 +1,14 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import marked from "marked";
-import { CircularProgress } from "@material-ui/core";
+import { LinearProgress, Paper, withStyles } from "@material-ui/core";
+
+const styles = theme => ({
+  paper: {
+    margin: theme.spacing.unit * 2,
+    padding: theme.spacing.unit * 2
+  }
+});
 
 class PostLoader extends Component {
   state = {
@@ -31,6 +38,7 @@ class PostLoader extends Component {
 
   render() {
     const { markdown, loading } = this.state;
+    const { classes } = this.props;
 
     // The name of the dangerouslySetInnerHTML can be a little repellent
     // but it is only to remind yourself that this expose users to XSS.
@@ -38,11 +46,15 @@ class PostLoader extends Component {
     // of this line 😃
 
     if (loading) {
-      return <CircularProgress />;
+      return <LinearProgress />;
     } else {
-      return <article dangerouslySetInnerHTML={{ __html: markdown }} />;
+      return (
+        <Paper className={classes.paper}>
+          <article dangerouslySetInnerHTML={{ __html: markdown }} />
+        </Paper>
+      );
     }
   }
 }
 
-export default withRouter(PostLoader);
+export default withStyles(styles)(withRouter(PostLoader));

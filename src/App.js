@@ -7,6 +7,7 @@ import PostLoader from "./PostLoader";
 import { Button } from "@material-ui/core";
 import PostList from "./PostList";
 import Gallery from "./Gallery";
+import "./App.css";
 
 class App extends Component {
   render() {
