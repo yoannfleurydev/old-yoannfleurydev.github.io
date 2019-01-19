@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import marked from "marked";
-import { LinearProgress, Paper, withStyles } from "@material-ui/core";
+import { LinearProgress, Paper, withStyles, Grid } from "@material-ui/core";
 
 const styles = theme => ({
   paper: {
@@ -49,9 +49,14 @@ class PostLoader extends Component {
       return <LinearProgress />;
     } else {
       return (
-        <Paper className={classes.paper}>
-          <article dangerouslySetInnerHTML={{ __html: markdown }} />
-        </Paper>
+        <Grid container>
+          <Grid item xs={0} sm={1} md={2} lg={3} xl={4} />
+          <Grid item xs={12} sm={10} md={8} lg={6} xl={4}>
+            <Paper className={classes.paper}>
+              <article dangerouslySetInnerHTML={{ __html: markdown }} />
+            </Paper>
+          </Grid>
+        </Grid>
       );
     }
   }

@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <AppBar position="static">
+          <AppBar position="sticky">
             <Toolbar>
               <Typography
                 variant="h6"
