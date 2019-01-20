@@ -1,6 +1,6 @@
 {
-  "short_name": "YoannFleuryDev",
-  "name": "Blog de YoannFleuryDev",
+  "short_name": "Yoann Fleury",
+  "name": "Blog de Yoann Fleury",
   "icons": [
     {
       "src": "favicon.ico",
@@ -10,6 +10,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#081D22",
   "background_color": "#ffffff"
 }
