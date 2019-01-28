@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import marked from "marked";
 import { LinearProgress, Paper, withStyles, Grid } from "@material-ui/core";
+import "highlight.js/styles/github.css";
 
 const styles = theme => ({
   paper: {
@@ -26,7 +27,11 @@ class PostLoader extends Component {
         })
         .then(text => {
           this.setState({
-            markdown: marked(text),
+            markdown: marked(text, {
+              highlight: function(code) {
+                return require("highlight.js").highlightAuto(code).value;
+              }
+            }),
             loading: false
           });
         })

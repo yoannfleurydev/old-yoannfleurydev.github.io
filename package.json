@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.9.0",
+    "highlight.js": "^9.13.1",
     "marked": "^0.6.0",
     "mdx.macro": "^0.2.7",
     "react": "^16.7.0",
