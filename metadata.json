@@ -1,6 +1,10 @@
 {
   "posts": [
     {
+      "path": "2019_01_26_3_commandes_git",
+      "title": "Les 3 commandes git que j'utilise le plus"
+    },
+    {
       "path": "2019_01_13_apropos",
       "title": "A propos"
     }
