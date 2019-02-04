@@ -3,7 +3,7 @@
 # Les 3 commandes git que j'utilise le plus
 
 > Bon, c'est peut être l'article pas très utile pour ceux qui connaissent déjà
-> git mais voici les 5 commandes git que j'utilise le plus, hors add et commit
+> git mais voici les 3 commandes git que j'utilise le plus, hors add et commit
 > qui sont assez communs.
 
 ## Commande numéro 1 : status
