@@ -55,7 +55,7 @@ class PostLoader extends Component {
     } else {
       return (
         <Grid container>
-          <Grid item xs={0} sm={1} md={2} lg={3} xl={4} />
+          <Grid item xs={false} sm={1} md={2} lg={3} xl={4} />
           <Grid item xs={12} sm={10} md={8} lg={6} xl={4}>
             <Paper className={classes.paper}>
               <article dangerouslySetInnerHTML={{ __html: markdown }} />

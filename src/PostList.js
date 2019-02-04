@@ -23,9 +23,7 @@ class PostList extends Component {
   componentDidMount() {
     this.setState({ loading: true }, () => {
       fetch(`./metadata.json`)
-        .then(response => {
-          return response.json();
-        })
+        .then(response => response.json())
         .then(metadata => {
           this.setState({ loading: false, posts: metadata.posts });
         })

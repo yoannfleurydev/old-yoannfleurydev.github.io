@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { withStyles } from "@material-ui/core";
+import config from "./config.json";
 
 const styles = {
   gallery: {
@@ -45,25 +46,6 @@ const styles = {
   }
 };
 
-const images = [
-  {
-    src: "./img/gallery/amiens_20181123_193548.jpg",
-    alt: "Grande Roue du Marché de Noël d'Amiens"
-  },
-  {
-    src: "./img/gallery/amiens_20181201_201109.jpg",
-    alt: "Rue d'Amiens vers le quartier de Saint Leu"
-  },
-  {
-    src: "./img/gallery/amiens_20181229_195026.jpg",
-    alt: "Bière Tempest Mexicake Brune"
-  },
-  {
-    src: "./img/gallery/rouen_20181122_140027.jpg",
-    alt: "Amphithéâtre principal de Codeurs en Seine 2018"
-  }
-];
-
 // Mainly designed using inspiration from Wes Bos grid course.
 // https://www.youtube.com/watch?v=OkCnhz__aFM
 class Gallery extends Component {
@@ -73,21 +55,25 @@ class Gallery extends Component {
     this.state = {
       overlay: false,
       currentImage: {},
-      overlayImageStyle: {}
+      overlayImageStyle: {},
+      images: []
     };
+  }
 
-    this.images = images.map(image => {
-      return (
-        <div className={this.generateClassName()} key={image.src}>
-          <img
-            src={image.src}
-            alt={image.alt}
-            className={props.classes.img}
-            onClick={event => this.handleOnClick(event, image)}
-          />
-        </div>
-      );
-    });
+  componentDidMount() {
+    fetch(`${config.photos}/metadata.json`)
+      .then(res => res.json())
+      .then(metadata =>
+        metadata.photos.map(photo => {
+          photo.src = `${config.photos}/${photo.src}`;
+          photo.className = this.generateClassName();
+
+          return photo;
+        })
+      )
+      .then(images => {
+        this.setState({ images });
+      });
   }
 
   randomNumber = limit => {
@@ -125,11 +111,24 @@ class Gallery extends Component {
 
   render() {
     const { classes } = this.props;
-    const { overlay, currentImage, overlayImageStyle } = this.state;
+    const { overlay, currentImage, overlayImageStyle, images } = this.state;
 
     return (
       <Fragment>
-        <div className={classes.gallery}>{this.images}</div>
+        <div className={classes.gallery}>
+          {images.map(image => {
+            return (
+              <div className={image.className} key={image.src}>
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className={classes.img}
+                  onClick={event => this.handleOnClick(event, image)}
+                />
+              </div>
+            );
+          })}
+        </div>
         {overlay && (
           <div className={classes.overlay} onClick={this.handleClose}>
             <img
