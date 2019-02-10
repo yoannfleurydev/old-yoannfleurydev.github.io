@@ -1,0 +1,30 @@
+{
+  "posts": [
+    {
+      "content": "\r\n![git](./img/posts/git.png)\r\n\r\n# Les 3 commandes git que j'utilise le plus\r\n\r\n> Bon, c'est peut être l'article pas très utile pour ceux qui connaissent déjà\r\n> git mais voici les 3 commandes git que j'utilise le plus, hors add et commit\r\n> qui sont assez communs.\r\n\r\n## Commande numéro 1 : status\r\n\r\n`git status` est probablement la commande git que j'utilise le plus. Elle permet\r\nde connaître rapidement l'état dans lequel est le dépôt. J'utilise un alias,\r\npour gagner du temps et formatter la sortie de la commande comme je le souhaite.\r\n\r\n`git st` me permet de faire la même chose que `git status -sb`, c'est à dire,\r\nafficher un `status` mais en version courte grâce au `-s | --short` et avec la\r\nbranche grâce au à l'option `-b | --branch`.\r\n\r\n> Pour résumer j'utilise l'alias : `git st === git status -sb`\r\n\r\n## Commande numéro 2 : stash\r\n\r\n`git stash` me permet de mettre de côté un travail que j'ai pu effectuer mais\r\nque je ne veux pas `commit` tout de suite. Il est possible d'utiliser le stash\r\nde plusieurs façons :\r\n\r\n- **`stash --keep-index`** permet de stash les fichiers suivis, mais pas ceux\r\n  qui sont déjà dans l'`index`.\r\n\r\n```sh\r\n$ git status\r\n\r\nM  index.html # fichier ajouté à l'index\r\n M index.js   # fichier modifié mais non ajouté\r\n?? index.css  # fichier non suivi par git\r\n\r\n$ git stash --keep-index\r\n\r\n$ git status\r\n\r\nM  index.html # fichier ajouté à l'index\r\n?? index.css  # fichier non suivi par git\r\n```\r\n\r\n- **`stash`** seul permet de mettre de côté tous les fichiers qui sont suivis.\r\n\r\n```sh\r\n$ git status\r\n\r\nM  index.html # fichier ajouté à l'index\r\n M index.js   # fichier modifié mais non ajouté\r\n?? index.css  # fichier non suivi par git\r\n\r\n$ git stash\r\n\r\n$ git status\r\n\r\n?? index.css  # fichier non suivi par git\r\n```\r\n\r\n- **`stash --include-untracked`** permet de stash tous les fichiers, même les\r\n  non suivis par git.\r\n\r\n```sh\r\n$ git status\r\n\r\nM  index.html # fichier ajouté à l'index\r\n M index.js   # fichier modifié mais non ajouté\r\n?? index.css  # fichier non suivi par git\r\n\r\n$ git stash\r\n\r\n$ git status\r\n\r\n# rien ici car tout est stash\r\n```\r\n\r\n- **`stash --all`** permet de stash **tous** les fichiers, y compris ceux qui\r\n  sont dans le `.gitignore` !\r\n\r\n> Pour résumer, mes alias sont les suivant:\r\n>\r\n> - `git stsh === git stash --keep-index`\r\n> - `git stash` reste le même\r\n> - `git staash === stash --include-untracked`\r\n> - `git staaash = stash --all`\r\n\r\n## Commande numéro 3 : reset HEAD --\r\n\r\nAlors, pour cette dernière commande, j'utilise `reset` dans une utilisation un peu\r\nspéciale. Le fait de faire `git reset HEAD -- monfichier.txt` me permet de\r\nretirer le fichier de l'index. Un exemple sera plus parlant :\r\n\r\n```sh\r\ngit add .\r\n\r\n# Tous mes fichiers sont ajouté dans l'index\r\n\r\ngit reset HEAD -- index.html\r\n\r\n# Tous mes fichiers sont dans l'index, sauf index.html\r\n# que je viens d'enlever.\r\n```\r\n\r\n> Pour résumer, mon alias est `git unstage === git reset HEAD --`\r\n\r\n---\r\n\r\nVoilà pour les 3 commandes que j'utilise le plus avec git. J'espère que vous avez\r\ndécouvert des utilisations sympa de git au travers de cet article.\r\n",
+      "data": {
+        "author": "YoannFleuryDev",
+        "date": "2019-01-26T00:00:00.000Z",
+        "slug": "2019_01_26_apropos.md",
+        "lang": "fr",
+        "title": "Les 3 commandes git que j'utilise le plus"
+      },
+      "isEmpty": false,
+      "excerpt": "",
+      "path": "public/posts/2019_01_26_3_commandes_git.md"
+    },
+    {
+      "content": "\r\n# A Propos\r\n\r\n## Réalisation de ce blog\r\n\r\nCe blog a été construit à partir de [React][react-site],\r\n[Material-UI][material-ui-site] et [React-Router][react-router-site].\r\n\r\nEvidemment, le SEO des articles est ridicule, mais en soit, je m'en moque un peu,\r\nce que je veux, c'est surtout prendre des notes pour moi, ou alors partager un\r\narticle sur le moment.\r\n\r\nPeut être qu'un flux RSS sera présent par la suite, il faut que je vois si c'est\r\nfaisable. En gros, j'ai encore des idées pour ce blog, mais il faut que je\r\nprenne le temps de les mettre en place. Je ne sais pas si tout sera réalisable,\r\nj'avance un peu à l'aveugle avec cet objectif de tout faire dans le navigateur.\r\n\r\nSi vous avez des idées pour améliorer ce blog, optimiser son SEO, ses\r\nperformances etc, n'hésitez pas à [ouvrir des issues][github-issue-new].\r\n\r\n![Une image, parce que c'est possible d'en mettre une 😏](./img/posts/apropos_end.jpg)\r\n\r\n[react-site]: https://reactjs.org/ \"Site de React\"\r\n[material-ui-site]: https://material-ui.com/ \"Site de Material UI\"\r\n[react-router-site]: https://reacttraining.com/react-router/ \"Site de React Router\"\r\n[github-issue-new]: https://github.com/yoannfleurydev/yoannfleurydev.github.io/issues/new \"Lien pour ouvrir un ticket sur le site github.org\"\r\n",
+      "data": {
+        "author": "YoannFleuryDev",
+        "date": "2019-01-13T00:00:00.000Z",
+        "slug": "2019_01_13_apropos.md",
+        "lang": "fr",
+        "title": "A Propos"
+      },
+      "isEmpty": false,
+      "excerpt": "",
+      "path": "public/posts/2019_01_13_apropos.md"
+    }
+  ]
+}

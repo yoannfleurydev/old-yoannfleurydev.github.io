@@ -1,3 +1,11 @@
+---
+author: YoannFleuryDev
+date: 2019-01-26
+slug: 2019_01_26_apropos.md
+lang: fr
+title: Les 3 commandes git que j'utilise le plus
+---
+
 ![git](./img/posts/git.png)
 
 # Les 3 commandes git que j'utilise le plus

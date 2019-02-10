@@ -4,12 +4,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^3.9.0",
-    "highlight.js": "^9.13.1",
+    "@material-ui/core": "^3.9.2",
+    "gray-matter": "^4.0.2",
+    "highlight.js": "^9.14.2",
     "marked": "^0.6.0",
-    "mdx.macro": "^0.2.7",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.3",
     "typeface-roboto": "^0.0.54"
@@ -19,6 +19,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "compile": "npx tsc bin/generate-metadata.ts",
+    "generate": "node bin/generate-metadata.js",
     "deploy": "yarn build && gh-pages -d build -b master"
   },
   "eslintConfig": {
@@ -31,6 +33,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "gh-pages": "^2.0.1"
+    "@types/node": "^10.12.24",
+    "gh-pages": "^2.0.1",
+    "typescript": "^3.3.3"
   }
 }

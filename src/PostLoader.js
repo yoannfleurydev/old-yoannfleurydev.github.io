@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import marked from "marked";
 import { LinearProgress, Paper, withStyles, Grid } from "@material-ui/core";
-import "highlight.js/styles/github.css";
+import "highlight.js/styles/atom-one-dark.css";
 
 const styles = theme => ({
   paper: {
